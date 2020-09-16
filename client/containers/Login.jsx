@@ -8,10 +8,9 @@ import { Link } from 'react-router-dom';
 // import actions
 import * as actions from '../actions/actions.js';
 
-
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   verifyUser: (newUser) => dispatch(actions.verifyUser(newUser)),
-})
+});
 
 class Login extends Component {
   constructor(props) {
@@ -20,18 +19,18 @@ class Login extends Component {
 
   // render Logo and LoginForm Component
   render() {
-
     let usernameInput;
     let passwordInput;
 
-    return(
+    return (
       <div className="login-container">
         <div className="login-logo">
-        pair/a\dice
-        {/* 👥🎲 */}
+          pair/a\dice
+          {/* 👥🎲 */}
         </div>
         <div className="login-subTitle">
-        Pair-programming roulette.<br />
+          Pair-programming roulette.
+          <br />
         </div>
         <div className="dice">🎲🎲</div>
         <div className="login-form">
@@ -40,36 +39,50 @@ class Login extends Component {
               type="text"
               id="username-input"
               placeholder="Username"
-              onChange={e => usernameInput = e.target.value}
+              onChange={(e) => (usernameInput = e.target.value)}
             ></input>
             <input
               type="text"
               id="password-input"
               placeholder="Password"
-              onChange={e => passwordInput = e.target.value}
+              onChange={(e) => (passwordInput = e.target.value)}
             ></input>
           </span>
           <div className="button-container">
             <span className="login-register-buttons">
               <Link to="/waiting-room" className="waiting-room-link">
-                <button 
+                <button
                   id="register-button"
                   type="button"
                   // onClick={() => this.props.addUser()}
-                >Register</button>
+                >
+                  Register
+                </button>
               </Link>
               <Link to="/waiting-room" className="waiting-room-link">
-                <button 
+                <button
                   id="login-button"
                   type="button"
-                  onClick={() => this.props.verifyUser({username: usernameInput, password: passwordInput})}
-                >Login</button>
+                  onClick={() =>
+                    this.props.verifyUser({
+                      username: usernameInput,
+                      password: passwordInput,
+                    })
+                  }
+                >
+                  Login
+                </button>
               </Link>
-              </span>
+              <div>
+                <a href="http://localhost:3000/auth/google">
+                  sign in with google
+                </a>
+              </div>
+            </span>
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 

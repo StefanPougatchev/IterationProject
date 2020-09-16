@@ -1,8 +1,14 @@
 const express = require('express');
-const app = express();
+
 const bodyParser = require('body-parser');
+
+const passportSetup = require('../config/passport-setup');
+
+const app = express();
+
 const apiRouter = require('./routes/api');
 const authRouter = require('./routes/auth-routes');
+
 const PORT = 3000;
 
 // db connection
