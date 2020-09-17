@@ -35,8 +35,10 @@
     "react-router-dom": "^5.2.0",
     "redux": "^4.0.5",
     "redux-devtools": "^3.7.0",
+    "simple-peer": "^9.7.2",
     "socket.io": "^2.3.0",
     "socket.io-client": "^2.3.0",
+    "styled-components": "^5.2.0",
     "xterm-for-react": "^1.0.4"
   },
   "devDependencies": {
