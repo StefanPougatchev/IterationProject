@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
+import CodeEditor from '../components/CodeEditor.jsx';
+import VideoDialog from '../components/VideoDialog.jsx';
 
 // import our children components
 
@@ -8,14 +10,14 @@ import { Link, withRouter } from 'react-router-dom';
 import * as actions from '../actions/actions.js';
 
 // mapStateToProps
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   // add pertinent state here, auto given store state
   username: state.main.currentUser.username,
-})
+});
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   dummy: () => dispatch(actions.dummy()),
-})
+});
 
 class SessionRoom extends Component {
   constructor(props) {
@@ -24,43 +26,64 @@ class SessionRoom extends Component {
 
   // render Logo and LoginForm Component
   render() {
-
-    return(
+    return (
       <div className="waiting-room-container">
         <span className="login-logo">pair/a\dice</span>
-      <div className="greeting">
-        <center>
-          User meet Partner, Partner meet User.<br /><br />
-          Please follow the links to Pair-Program!<br /><br /><br />
-        </center>
-        <div className="sessions-links">
+        <div className="greeting">
           <center>
-            <a href="https://hangouts.google.com/call/fje6hzvFsddAlpEn1VHoACEA">Video Chat</a><br /><br />
-            <a href="https://codesandbox.io/s/serene-bhabha-0s83d">Sandbox</a><br /><br />
-            <pre>
-              <code>
-                <span>"Write a program that prints the numbers from 1 to 100. <br />
-                But for multiples of three print “Fizz” instead of the number and <br />
-                for the multiples of five print “Buzz”. For numbers which are multiples <br />
-                of both three and five print “FizzBuzz”."</span>
-              </code>
-            </pre>
+            User meet Partner, Partner meet User.
+            <br />
+            <br />
+            Please follow the links to Pair-Program!
+            <br />
+            <br />
+            <br />
           </center>
-        </div>
-        <div className="level-language-form">
-          <Link to="/waiting-room" className="session-room-link"><br /><br />
+          <div className="sessions-links">
+            <center>
+              <pre>
+                <code>
+                  <span>
+                    "Write a program that prints the numbers from 1 to 100.{' '}
+                    <br />
+                    But for multiples of three print “Fizz” instead of the
+                    number and <br />
+                    for the multiples of five print “Buzz”. For numbers which
+                    are multiples <br />
+                    of both three and five print “FizzBuzz”."
+                  </span>
+                </code>
+              </pre>
+            </center>
+          </div>
           <center>
-            <button
-                id="session-room-button"
-                type="button"
-                // onClick={() => this.props.findPartner()}
-            >END SESSION</button></center>
-          </Link>
+            <div className="codeeditor">
+              <CodeEditor />
+              <VideoDialog />
+              <VideoDialog />
+            </div>
+          </center>
+          <div className="level-language-form">
+            <Link to="/waiting-room" className="session-room-link">
+              <br />
+              <br />
+              <center>
+                <button
+                  id="session-room-button"
+                  type="button"
+                  // onClick={() => this.props.findPartner()}
+                >
+                  END SESSION
+                </button>
+              </center>
+            </Link>
           </div>
         </div>
-    </div>
-    )
+      </div>
+    );
   }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SessionRoom));
+export default // withRouter(
+connect(mapStateToProps, mapDispatchToProps)(SessionRoom);
+// );

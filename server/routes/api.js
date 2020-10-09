@@ -3,7 +3,7 @@ const router = express.Router();
 const userController = require('../controllers/userController');
 
 //Post request for user registration
-router.post('/user', userController.addUser, (req, res) => {
+router.post('/user', userController.addOrVerifyUser, (req, res) => {
     res.status(200).json(res.locals.user);
 });
 
@@ -30,7 +30,7 @@ router.post('/feedback', userController.sessionFeedback,
 );
 
 //Put request, increment session count
-router.put('/session', userController.incrementSessionCount, 
+router.put('/session', userController.incrementSessionCount,
     (req, res) => res.status(200).json({})
 );
 
