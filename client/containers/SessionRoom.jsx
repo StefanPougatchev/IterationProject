@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 import CodeEditor from '../components/CodeEditor.jsx';
+import VideoDialog from '../components/VideoDialog.jsx';
 
 // import our children components
 
@@ -58,6 +59,8 @@ class SessionRoom extends Component {
           <center>
             <div className="codeeditor">
               <CodeEditor />
+              <VideoDialog />
+              <VideoDialog />
             </div>
           </center>
           <div className="level-language-form">
@@ -81,7 +84,6 @@ class SessionRoom extends Component {
   }
 }
 
-export default 
-// withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(SessionRoom)
+export default // withRouter(
+connect(mapStateToProps, mapDispatchToProps)(SessionRoom);
 // );
